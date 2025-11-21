@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ЛАБА по гриду и флексу</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .menu-wrapper {
+        margin-top: 1%;
+    }
+
+    .green-text {
+        color: green;
+    }
+
+    .menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        border-top: 4px double #000;
+        border-bottom: 4px double #000;
+        height: 100%;
+    }
+
+    .menu-item {
+        font-size: 15px;
+        height: 100%;
+        padding: 5px;
+    }
+
+     .btn { 
+        display: inline-block; 
+        background: #0066CC; 
+        color: white; 
+        padding: 4px 8px; 
+        border-radius: 3px;
+        text-decoration: none; 
+        margin-top: 4px;
+        font-size: 12px; 
+        }
+
+    .menu_1 {
+        height: 100%;
+        border-left: 4px double #000;
+        border-right: 4px double #000;
+    }
+
+    .photos-container {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: 5px;
+        margin-top: 10px;
+        padding: 0 5%;
+        height: 80px; 
+    }
+
+    .photo-column {
+        display: grid;
+        gap: 5px;
+        height: 80px;
+    }
+
+    .right-column, .left-column {
+        grid-template-rows: 1fr 1fr;
+        height: 80px;
+    }
+
+    .center-column {
+        grid-template-rows: 1fr;
+    }
+
+    .photo-item {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        height: 80px;
+    }
+
+    .photo-item img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .big-photo {
+        grid-row: span 2;
+        height: 165px;
+    }
+
+    .circular-photos {
+        display: flex;
+        justify-content: center;
+        gap: 15%;
+        margin-top: 100px; 
+        padding: 0 5%;
+    }
+
+    .circular-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100px;
+    }
+
+    .circular-photo {
+        width: 50px;
+        height: 50px;
+        border-radius: 70%;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+
+    .circular-photo img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .photo-text {
+        font-size: 14px;
+        color: #333;
+    }
+
+    .content-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-top: 30px;
+        padding: 0 5%;
+        gap: 10px;
+    }
+
+    .text-content {
+
+        text-align: right;
+    }
+
+    .text-content h2 {
+        text-align: right;
+        margin-bottom: 15px;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .text-content p {
+        text-align: justify;
+        line-height: 1.6;
+        color: #555;
+        font-size: 14px;
+    }
+
+    .image-content {
+        width: 100%;
+        height: 165px;
+    }
+
+    .image-content img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    
+    .sm-more { 
+        display: block; 
+        margin-top: 5px; 
+        color: #81ae2e; 
+        text-decoration: none;
+        font-weight: bold;
+        text-decoration: underline;
+        text-align: right;
+    }
+
+    .sm-moree { 
+        display: block; 
+        color: #81ae2e; 
+        text-decoration: none;
+        font-weight: bold;
+        text-decoration: underline;
+        text-align: left;
+    }
+    
+    .text-footer {
+        text-align: right;
+        margin-top: 10px;
+    }
+
+    .new-section {
+        margin-top: 60px; 
+        padding: 0 5%;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 30px;
+        font-weight: bold;
+    }
+
+    .three-column-layout {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .left-text-block {
+        text-align: justify;
+    }
+
+    .middle-image {
+        text-align: center;
+    }
+
+    .middle-image img {
+        min-width: 100%;
+        height: 200px;
+    }
+
+    .text-block p {
+        line-height: 1.6;
+        color: #555;
+        font-size: 14px;
+    }
+
+    .content-section-reversed {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-top: 60px;
+        padding: 0 5%;
+        gap: 10px;
+    }
+
+    .text-content-left {
+        text-align: left;
+    }
+
+    .text-content-left h2 {
+        text-align: left;
+        margin-bottom: 15px;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .text-content-left p {
+        text-align: justify;
+        line-height: 1.6;
+        color: #555;
+        font-size: 14px;
+    }
+
+    .image-content-left {
+        width: 100%;
+        height: 190px;
+    }
+
+    .image-content-left img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .sm-more-left { 
+        display: block; 
+        margin-top: 5px; 
+        color: #81ae2e; 
+        text-decoration: none;
+        font-weight: bold;
+        text-decoration: underline;
+        text-align: left;
+    }
+    
+    footer {
+        margin-top: 60px;
+        padding: 20px 5%;
+        background-color: #f5f5f5;
+        text-align: center;
+        border-top: 1px solid #ddd;
+        font-size: 14px;
+        color: #555;
+    }
+    
+    @media (max-width: 768px) {
+        .menu {
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px 0;
+        }
+        
+        .menu-item {
+            flex: 0 0 calc(50% - 20px);
+            text-align: center;
+            border: none !important;
+            padding: 10px 0;
+        }
+            .menu_1 {
+
+        border-left: 4px double #000 !important;
+        border-right: 4px double #000 !important;
+        border-bottom: 4px double #000 !important;
+    }
+        
+        .photos-container {
+            grid-template-columns: 1fr;
+            height: auto;
+        }
+            .photo-item {
+        height: 300px; 
+    }
+
+        
+        .photo-column {
+            grid-template-rows: auto;
+            height: auto;
+        }
+        
+        .big-photo {
+            grid-row: auto;
+            height: 300px;
+        }
+        
+        .circular-photos {
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .content-section,
+        .content-section-reversed {
+            flex-direction: column;
+        }
+        
+        .content-section-reversed {
+            flex-direction: column-reverse;
+        }
+        
+        .text-content, 
+        .text-content-left {
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        
+        .text-content h2,
+        .text-content-left h2 {
+            text-align: center;
+        }
+        
+        .sm-more,
+        .sm-more-left {
+            text-align: center;
+        }
+        
+        .text-footer {
+            text-align: center;
+        }
+        
+        .three-column-layout {
+            flex-direction: column;
+        }
+        
+        .middle-image {
+            order: -1;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        
+        .middle-image img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+        }
+        
+        .left-text-block {
+            margin-top: 0;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="menu-wrapper">
+    <nav class="menu">
+        <div class="menu-item green-text menu_1">Главная</div>
+        <div class="menu-item">Крымск</div>
+        <div class="menu-item">Ленск 2001</div>
+        <div class="menu-item">Статистика</div>
+    </nav>
+</div>
+
+<div class="photos-container">
+    <div class="photo-column right-column">
+        <div class="photo-item"><img src="IMG/KR.png" alt="Крымск 2012"></div>
+        <div class="photo-item"><img src="IMG/IR.png" alt="Иркутск 2019"></div>
+    </div>
+
+    <div class="photo-column center-column">
+        <div class="photo-item big-photo"><img src="IMG/Lensk.png" alt="Ленск 2001"></div>
+    </div>
+
+    <div class="photo-column left-column">
+        <div class="photo-item"><img src="IMG/HABAR.png" alt="Хабаровск 2013"></div>
+        <div class="photo-item"><img src="IMG/Peter.png" alt="Петербург 1824"></div>
+    </div>
+</div>
+
+<div class="circular-photos">
+    <div class="circular-item">
+        <div class="circular-photo"><img src="IMG/KR.png" alt="Крымск 2012"></div>
+        <div class="photo-text">Крымск 2012</div>
+        <div><a class="btn" href="#">Подробнее»</a></div>
+    </div>
+    <div class="circular-item">
+        <div class="circular-photo"><img src="IMG/IR.png" alt="Иркутск 2019"></div>
+        <div class="photo-text">Иркутск 2019</div>
+        <div><a class="btn" href="#">Подробнее»</a></div>
+    </div>
+    <div class="circular-item">
+        <div class="circular-photo"><img src="IMG/HABAR.png" alt="Хабаровск 2013"></div>
+        <div class="photo-text">Хабаровск 2013</div>
+        <div><a class="btn" href="#">Подробнее»</a></div>
+    </div>
+    <div class="circular-item">
+        <div class="circular-photo"><img src="IMG/Lensk.png" alt="Ленск 2001"></div>
+        <div class="photo-text">Ленск 2001</div>
+        <div><a class="btn" href="#">Подробнее»</a></div>
+    </div>
+</div>
+
+<div class="content-section">
+    <div class="text-content">
+        <h2>Наводнение</h2>
+        <p>Крупное наводнение в Ленске произошло в мае 2001 года в результате ледохода на реке Лена. 
+    Паводок привёл к масштабным разрушениям городской инфраструктуры и жилых домов. 
+    Уровень воды достиг исторического максимума, что потребовало экстренной эвакуации населения. 
+    Последствия стихии ликвидировались силами МЧС и волонтёров в течение нескольких месяцев.
+    Это наводнение стало одним из самых разрушительных в истории современной России.</p>
+        <div class="text-footer">
+            <a class="sm-more" href="#">Подробнее»</a>
+        </div>
+    </div>
+    <div class="image-content">
+        <img src="IMG/Lensk.png" alt="Ленск 2001">
+    </div>
+</div>
+
+<div class="new-section">
+    <h2 class="section-title">Исторические катастрофы России</h2>
+    
+    <div class="three-column-layout">
+        <div class="left-text-block text-block">
+            <p>История наводнений в России насчитывает множество трагических событий, каждое из которых оставило глубокий след в памяти людей. Одним из самых разрушительных стало наводнение в Ленске в 2001 году, когда уровень воды достиг рекордных отметок, полностью затопив город. Подобные катастрофы случались и в других регионах, например, в Крымске в 2012 году, где за несколько часов выпала полугодовая норма осадков.</p>
+        </div>
+        
+        <div class="middle-image">
+            <img src="IMG/Lensk.png" alt="Историческое наводнение">
+        </div>
+        
+        <div class="left-text-block text-block">
+            <p>Современные методы прогнозирования и предотвращения наводнений включают в себя использование спутникового мониторинга, автоматических гидрологических постов и сложных математических моделей. Эти технологии позволяют заранее предупредить население и провести эвакуацию, значительно снижая количество жертв. Однако, несмотря на прогресс, стихия иногда бывает непредсказуемой, и усилия по совершенствованию систем защиты продолжаются.</p>
+            <a class="sm-moree" href="#">Подробнее»</a>
+        </div>
+    </div>
+</div>
+
+<div class="content-section-reversed">
+    <div class="image-content-left">
+        <img src="IMG/KR.png" alt="Крымск 2012">
+    </div>
+    <div class="text-content-left">
+        <h2>Наводнение в Крымске 2012</h2>
+        <p>В ночь с 6 на 7 июля 2012 года в Крымске и близлежащих населённых пунктах произошло катастрофическое наводнение, вызванное экстремальными ливневыми осадками. За несколько часов выпала почти полугодовая норма осадков, что привело к резкому подъёму уровня рек и затоплению значительной части города. Наводнение унесло жизни более 170 человек и стало одним из самых трагических стихийных бедствий в современной истории России. Последствия наводнения были ликвидированы в течение нескольких месяцев при участии тысяч спасателей и волонтёров.</p>
+        <div class="text-footer">
+            <a class="sm-more-left" href="#">Подробнее»</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>2025 Группа Б9123-09.03.04 Долгорук Д.А</p>
+</footer>
+
+</body>
+</html>

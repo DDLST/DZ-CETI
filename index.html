@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Наводнения в России</title>
+    <style>
+        * { 
+            box-sizing: border-box; 
+        }
+        html, body { 
+            height: 100%; 
+            margin: 0; 
+            width: 100%; 
+            margin: 0 auto; 
+        }
+        
+        body { 
+            background: #ffffff; 
+            font-family: Arial, sans-serif; 
+            color: #222; 
+        }
+        
+        #wrapper { 
+            width: 100%; 
+            margin: 0 auto;  
+        }
+        
+        .menu { 
+            text-align: center; 
+            padding: 0;
+            border-top: 4px double #bdbdbd;
+            border-bottom: 4px double #bdbdbd; 
+            margin-top: 20px;
+            height: 44px;
+            line-height: 44px;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        
+        .menu-links {
+            display: inline-block;
+            width: 80%;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        .menu a {  
+            font-size: 18px; 
+            text-decoration: none; 
+            display: inline-block;
+            color: #222;
+            padding-left: 1%;
+            padding-right: 1%;
+            margin-bottom: 1%;
+            text-align: center;
+
+        }
+        
+        .menu a.k {  
+            color: green;
+        }
+
+        .k {
+        height: 100%;
+        border-left: 4px double #000;
+        border-right: 4px double #000;
+    }
+
+        .search-form { 
+            display: inline-block;
+            width: 25%;
+            vertical-align: middle;
+            white-space: nowrap;
+            margin-bottom: 0%;
+            margin-top: -1%;
+            
+      
+            padding: 0 6% 0 0;
+        }
+        
+        .search-input { 
+            font-size: 15px;
+            margin-bottom: 1%; 
+            border: 1px solid #aaa; 
+            outline: none; 
+            width: 72%; 
+            height: 25px; 
+            border-radius: 0;
+            vertical-align: middle;
+        }
+        
+        .search-btn { 
+            font-size: 18px;
+            border: none; 
+            background: transparent; 
+            cursor: pointer; 
+            height: 28px; 
+            line-height: 1;
+            border-radius: 0;
+            vertical-align: middle;
+            margin-left: -10%;
+
+            border-left: none;
+            width: 25%;
+        }
+
+        .first-row { 
+            margin-top: 20px; 
+            height: 400px;
+        }
+        
+        .side-square { 
+            width: 24%; 
+            height: 400px; 
+            float: left;   
+        }
+        
+        .left-square { 
+            margin-right: 0.1%; 
+        }
+        
+        .center-column { 
+            width: 50%; 
+            float: left; 
+            height: 400px; 
+            margin: 0 0.1%; 
+        }
+        
+        .right-square { 
+            margin-left: 0; 
+        }
+        
+        .side-square img { 
+            width: 100%; 
+            height: 100%; 
+            display: block; 
+        }
+        
+        .center-top { 
+            width: 100%; 
+            height: 198px;
+            margin-bottom: 4px; 
+        }
+        
+        .center-top-item { 
+            width: calc(50% - 2px); 
+            float: left; 
+            height: 198px;
+            padding: 0.5%;
+        }
+        
+        .center-top-item:first-child { 
+            margin-right: 0.1%; 
+        }
+        
+        .center-top-item img { 
+            width: 100%; 
+            height: 100%; 
+            display: block; 
+        }
+        
+        .center-bottom {
+            width: 100%; 
+            height: 198px;
+            margin-left: 0.5%; 
+            padding-right: 1.3%;
+        }
+        
+        .center-bottom img { 
+            width: 100%; 
+            height: 100%; 
+            display: block; 
+        }
+
+        .circle-text-container { 
+            margin-top: 25px; 
+            text-align: center;
+        }
+        
+        .circle-text-block { 
+            width: 10%; 
+            display: inline-block; 
+            margin: 0 2%; 
+            vertical-align: top;
+        }
+        
+        .circle { 
+            width: 90%; 
+            height: 150px; 
+            border-radius: 50%; 
+            background: #ddd; 
+            margin: 0 auto;
+        }
+        
+        .circle img { 
+            width: 100%; 
+            height: 100%; 
+            border-radius: 50%; 
+            display: block; 
+        }
+        
+        .text-content { 
+            margin-top: 12px; 
+            text-align: center; 
+        }
+        
+        .text-content h3 { 
+            margin-bottom: 5px; 
+            font-size: 14px; 
+        }
+        
+        .text-content p { 
+            font-size: 12px; 
+            margin: 0.1% 0; 
+        }
+        
+        .btn { 
+            display: inline-block; 
+            background: #0066CC; 
+            color: white; 
+            padding: 4px 8px; 
+            border-radius: 3px; 
+            text-decoration: none; 
+            margin-top: 4px; 
+            font-size: 12px; 
+        }
+
+        .middle-block { 
+            width: 100%; 
+            height: 150px; 
+            background: #bbb; 
+            margin: 18px auto; 
+        }
+        .middle-block img { 
+            width: 100%; 
+            height: 100%;  
+            display: block; 
+        }
+        
+        .headline-section { 
+            width: 100%; 
+            text-align: center; 
+            margin: 40px 0; 
+            padding: 20px 0; 
+        }
+        
+        .main-headline { 
+            font-size: 24px; 
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #222;
+        }
+        
+        .sub-headline { 
+            font-size: 16px; 
+            color: #555;
+            line-height: 1.4;
+            max-width: 100%;
+            margin: 0 auto 20px auto;
+            text-align: justify; 
+        }
+        
+        .headline-btn { 
+            display: inline-block; 
+            background: #0066CC; 
+            color: white; 
+            padding: 8px 16px; 
+            border-radius: 3px; 
+            text-decoration: none; 
+            font-weight: bold;
+        }
+        
+        .card-row { 
+            margin-bottom: 10px; 
+        }
+        
+        .card { 
+            width: 48%; 
+            float: left; 
+            margin-right: 4%; 
+            background: white; 
+            padding: 15px; 
+            box-sizing: border-box; 
+            min-height: 200px; 
+        }
+        
+        .card:nth-child(2n) { 
+            margin-right: 0; 
+        }
+        
+        .card img { 
+            width: 150px; 
+            float: left; 
+            margin-right: 15px; 
+            height: 125px;
+        }
+        
+        .card h3 { 
+            margin: 5px 0 10px 0; 
+            font-size: 18px; 
+        }
+        
+        .card p { 
+            font-size: 14px; 
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+        
+        .sm-more { 
+            display: block; 
+            margin-top: 10px; 
+            color: #0066CC; 
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .sm-moreее { 
+            display: block; 
+            margin-top: 10px; 
+            color: #0066CC; 
+            text-decoration: none;
+            font-weight: bold;
+            text-align: right;
+        }
+        
+        footer { 
+            margin-top: 40px; 
+            text-align: center; 
+            padding: 15px; 
+            background: #f0f0f0; 
+            font-weight: bold; 
+            clear: both; 
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="menu">
+            <div class="menu-links">
+                <a href="#" class="k">Главная</a>
+                <a href="#">Крымск 2012</a>
+                <a href="#">Иркутск 2019</a>
+                <a href="#">Хабаровск 2013</a>
+            </div>
+            <form class="search-form" action="#" method="get">
+                <input class="search-input" type="text" placeholder="Поиск">
+                <button class="search-btn" type="submit">🔍</button>
+            </form>
+        </div>
+
+        <div class="row clearfix first-row">
+            <div class="side-square left-square">
+                <img src="IMG/KR.png" alt="Крымск 2012">
+            </div>
+
+            <div class="center-column">
+                <div class="center-top clearfix">
+                    <div class="center-top-item"><img src="IMG/IR.png" alt="Иркутск 2019"></div>
+                    <div class="center-top-item"><img src="IMG/HABAR.png" alt="Хабаровск 2013"></div>
+                </div>
+
+                <div class="center-bottom">
+                    <img src="IMG/Peter.png" alt="Петербург 1824">
+                </div>
+            </div>
+            
+            <div class="side-square right-square">
+                <img src="IMG/Lensk.png" alt="Ленск 2001">
+            </div>
+        </div>
+
+        <div class="circle-text-container">
+            <div class="circle-text-block">
+                <div class="circle"><img src="IMG/KR.png" alt="Крымск 2012"></div>
+                <div class="text-content">
+                    <h3>Крымск 2012</h3>
+                    <p>Самое разрушительное наводнение последних лет.</p>
+                    <a class="btn" href="#">Подробнее»</a>
+                </div>
+            </div>
+            <div class="circle-text-block">
+                <div class="circle"><img src="IMG/IR.png" alt="Иркутск 2019"></div>
+                <div class="text-content">
+                    <h3>Иркутск 2019</h3>
+                    <p>Сильный паводок на реках Сибири.</p>
+                    <a class="btn" href="#">Подробнее»</a>
+                </div>
+            </div>
+            <div class="circle-text-block">
+                <div class="circle"><img src="IMG/HABAR.png" alt="Хабаровск 2013"></div>
+                <div class="text-content">
+                    <h3>Хабаровск 2013</h3>
+                    <p>Рекордный уровень воды в Амуре.</p>
+                    <a class="btn" href="#">Подробнее»</a>
+                </div>
+            </div>
+            <div class="circle-text-block">
+                <div class="circle"><img src="IMG/Lensk.png" alt="Ленск 2001"></div>
+                <div class="text-content">
+                    <h3>Ленск 2001</h3>
+                    <p>Город почти полностью разрушен.</p>
+                    <a class="btn" href="#">Подробнее»</a>
+                </div>
+            </div>
+            <div class="circle-text-block">
+                <div class="circle"><img src="IMG/Peter.png" alt="Петербург 1824"></div>
+                <div class="text-content">
+                    <h3>Петербург 1824</h3>
+                    <p>Историческая катастрофа.</p>
+                    <a class="btn" href="#">Подробнее»</a>
+                </div>
+            </div>
+            <div class="circle-text-block">
+                <div class="circle"><img src="IMG/Amur.png" alt="Амурская область 2013"></div>
+                <div class="text-content">
+                    <h3>Амурская область 2013</h3>
+                    <p>Масштабное наводнение на Дальнем Востоке.</p>
+                    <a class="btn" href="#">Подробнее»</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="headline-section">
+            <div class="main-headline">Стихийные бедствия: история наводнений в России</div>
+            <div class="sub-headline">Россия, обладающая самой большой территорией в мире, регулярно сталкивается с масштабными наводнениями. От исторических катастроф XIX века до современных паводков - водная стихия продолжает испытывать на прочность инфраструктуру и систему спасения. На протяжении веков наводнения оказывали значительное влияние на развитие городов, инфраструктуры и методов борьбы со стихией. Продолжи текст. Эта эволюция шла от катастрофических разливов, воспринимавшихся как неотвратимое божественное провидение, к пониманию необходимости системных инженерных и прогностических мер. Одним из самых страшных в истории России стало Санкт-Петербургское наводнение 1824 года, описанное Пушкиным в «Медном всаднике». Уровень воды в Неве тогда поднялся более чем на 4 метра, город был практически уничтожен, погибли сотни человек. Подобные катастрофы заставляли власти империи искать решения — строить защитные сооружения, поднимать набережные. Однако настоящий перелом в сознании произошел уже в советское время с развитием гидроэнергетики. Строительство гигантских ГЭС и водохранилищ, таких как Волжский каскад, позволило частично укротить сток великих рек, но породило и новые риски, связанные с техногенными авариями. В новейшей истории характер наводнений изменился — на смену классическим половодьям все чаще приходят внезапные и чрезвычайно мощные дождевые паводки, как это было в Крымске в 2012 году, когда за ночь погибло более 170 человек. Трагедия в Крымске вскрыла системные провалы в оповещении и готовности к быстрому развитию событий. Не менее масштабным было наводнение на Амуре в 2013 году, где основной причиной стали затяжные муссонные дожди, а борьба со стихией потребовала мобилизации тысяч спасателей и военных. Современная стратегия борьбы с наводнениями в России сочетает традиционные методы, такие как строительство и модернизация дамб, как в бассейне Кубани, с внедрением высоких технологий. Это и спутниковый мониторинг, и сложные гидрологические модели для прогнозирования, и системы экстренного оповещения населения по всем каналам связи. Однако ключевым и самым сложным остается вопрос градостроительной политики — недопущение новой жилой застройки в исторических поймах рек, которые по своей природе предназначены для разлива. Таким образом, история наводнений в России — это не просто хроника разрушений, а история непрерывного и сложного диалога с природой, где каждая трагедия заставляет учиться, адаптироваться и искать новые, более эффективные решения для защиты жизни и экономики страны.</div>
+            <a href="#"  class="sm-moreее">Подробнее»</a>
+        </div>
+
+        <div class="row clearfix card-row">
+            <div class="card">
+                <img src="IMG/KR.png" alt="Крымск 2012">
+                <h3>Крымск 2012</h3>
+                <p>В ночь на 7 июля 2012 года в Крымском районе Краснодарского края произошло катастрофическое наводнение. За несколько часов выпало более чем двухмесячная норма осадков.</p>
+                <a href="#" class="sm-more">Подробнее»</a>
+            </div>
+            <div class="card">
+                <img src="IMG/IR.png" alt="Иркутск 2019">
+                <h3>Иркутск 2019</h3>
+                <p>Летом 2019 года в Иркутской области произошло сильнейшее наводнение, вызванное аномальными ливнями. Было затоплено более 100 населённых пунктов.</p>
+                <a href="#" class="sm-more">Подробнее»</a>
+            </div>
+        </div>
+        <div class="row clearfix card-row">
+            <div class="card">
+                <img src="IMG/HABAR.png" alt="Хабаровск 2013">
+                <h3>Хабаровск 2013</h3>
+                <p>В 2013 году Дальний Восток пережил самое масштабное наводнение за всю историю наблюдений. Уровень Амура достиг исторического максимума - 808 см.</p>
+                <a href="#" class="sm-more">Подробнее»</a>
+            </div>
+            <div class="card">
+                <img src="IMG/Lensk.png" alt="Ленск 2001">
+                <h3>Ленск 2001</h3>
+                <p>Весной 2001 года город Ленск в Якутии был практически полностью уничтожен паводком. Ледяные заторы на реке Лена привели к резкому подъёму воды на 17 метров.</p>
+                <a href="#" class="sm-more">Подробнее»</a>
+            </div>
+        </div>
+
+        <footer>
+            2025  Группа Б9123-09.03.04  Долгорук Даниил А.
+        </footer>
+    </div>
+</body>
+</html>
